@@ -1,0 +1,10 @@
+{% load thumbnail %}
+<div class="product menu-category">
+    <div class="product-image">
+        <a href="{{ libro.get_absolute_url}}">
+            <img class="product-image menu-item list-group-item" src="{{ libro.imagen|thumbnail_url:'cover'}}">
+        </a>
+    </div> 
+    <a href="#" class="menu-item list-group-item">Precio<span class="badge">${{ libro.precio }}</span></a>
+</div>
+

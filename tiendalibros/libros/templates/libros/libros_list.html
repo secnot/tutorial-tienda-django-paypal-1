@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="center-block text-center">
+        <h1>{% block titulo-lista %}Titulo Lista{% endblock %}</h1>
+        <p>{% block subtitula-lista %}{% endblock %}</p>
+    </div>
+    <div class="col-sm-12">
+        <div class="productsrow">
+            {% for libro in libro_list %}
+                {% include 'libros/libro_preview.html' with libro=libro %}
+            {% endfor %}
+        <div>
+    </div>
+</div>
+{% endblock %}

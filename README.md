@@ -1,2 +1,7 @@
-# tutorial-tienda-django-paypal-1
-Código de la primera parte del tutorial de Paypal en Django http://www.secnot.com/django-shop-paypal-rest-1.html
+# Tutorial Django y Paypal REST API 1
+
+Este es el repositorio del tutorial sobre Django y PayPal Rest API
+
+http://www.secnot.com/django-shop-paypal-rest-1.html
+
+

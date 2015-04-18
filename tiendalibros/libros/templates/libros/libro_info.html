@@ -1,0 +1,42 @@
+
+<p>{{libro.resumen}}</p>
+
+<dl class="dl-horizontal">
+    {% if libro.fecha_publicacion %}
+	<dt>Fecha publicación</dt>
+	<dd>{{ libro.fecha_publicacion }}</dd>
+    {% endif %}
+   
+    {% if libro.editorial %}
+        <dt>Editorial</dt>
+        <dd>{{libro.editorial.nombre}}</dd>
+    {% endif %}
+ 
+    {% if libro.numero_paginas %}
+        <dt>Páginas</dt>
+        <dd>{{ libro.numero_paginas }}</dd>
+    {% endif %}
+
+    <dt>Idioma</dt>
+    <dd>{{libro.get_idioma_display}}</dt>
+    
+    <dt>Autores</dt>
+    <dd>
+        {% for autor in libro.autores.all %}
+	    <span>{{autor.nombre_completo}}</span>
+	{%endfor%}
+    </dd>
+
+    {% if libro.epub or libro.mobi %}
+    <dt>Formatos</dt>
+    <dd>{%if libro.epub %}epub,{% endif %}{%if libro.mobi %}mobi{% endif %}</dd>
+    {% endif %}
+
+    {% if libro.isbn %}
+        <dt>ISBN</dt>
+        <dd>{{libro.isbn}}</dd>
+    {% endif %}
+				
+</dl>
+
+

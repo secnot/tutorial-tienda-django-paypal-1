@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}{{libro.titulo}} | TiendaLibros{% endblock %}
+
+
+<!--template-->
+{% block content %}
+<div class="container">
+    <div class="col-md-12">
+        <div class="center-block text-center">
+            <h1>{{libro.titulo}}</h1>
+            <p class="lead">por
+			{% for autor in libro.autores.all %}
+				<span>{{autor.nombre_completo}}</span>
+			{%endfor%}
+			</p>
+        </div>
+
+
+	<div class="container">
+		<div class="menu row">
+			<div class="product col-sm-3">
+				<a href="#"><img class="img-responsive" src="{{libro.imagen.url}}"></a>
+			</div>
+			<div class="col-sm-9">
+				<br>
+				{% include 'libros/libro_info.html' with libro=libro%}
+				<a href="{% url 'pago-paypal' libro.pk %}" class="btn btn-info btn-lg pull-right">Comprar {{libro.precio}}€</a>
+			</div>
+		</div>
+		<hr>
+	</div>
+
+	<div class="container">
+		<h4>Otros libros del autor</h4>
+		<div class="productsrow">
+            {% for libro in libros_autor %}
+                {% include 'libros/libro_preview.html' with libro=libro %}
+            {% endfor %}
+		</div>
+		<hr>
+	</div>
+
+{% endblock %}
